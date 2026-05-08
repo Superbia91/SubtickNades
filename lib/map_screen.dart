@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cs2/MyHomePage.dart';
 
 class MapScreen extends StatelessWidget {
   const MapScreen({super.key,required this.mapName});
