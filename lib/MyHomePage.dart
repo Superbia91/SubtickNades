@@ -31,8 +31,8 @@ final List<String> cs2Maps = const [
         
       
       
-        return Container(height: 100,margin: EdgeInsets.all(10), child: Image.asset("images/${cs2Maps[index].toLowerCase().replaceAll(' ', '_')}.png",fit: BoxFit.cover));
-      })
+        return Container(height: 150,margin: EdgeInsets.all(10), child:ClipRRect(borderRadius: BorderRadius.circular(15),child:Stack( children: [SizedBox.expand(child: Image.asset("images/${cs2Maps[index].toLowerCase().replaceAll(' ', '_')}.png",fit: BoxFit.cover,),),Align(child: Text(cs2Maps[index],style: TextStyle(color: Colors.white,fontSize: 32,fontWeight: FontWeight.bold,shadows: [Shadow(color: Colors.black,blurRadius: 5,offset: Offset(2, 2))]),),)])));
+      })//TODO добавь камит о том что ты добавил скругление 
 
         
       );
