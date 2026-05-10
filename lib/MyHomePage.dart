@@ -1,6 +1,7 @@
 // ignore: file_names
 import 'package:cs2/map_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -14,15 +15,30 @@ class MyHomePage extends StatelessWidget {
     'Ancient',
     'Anubis',
   ];
+   
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.surface,
+        
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
+            SizedBox(
+              height: 50,
+              child: TextButton (
+                onPressed: () {
+                  launchUrl(  
+                    Uri.parse('https://taplink.cc/depstarz'));
+                },
+                child: const Text(
+                  'Links',
+                  style: TextStyle(fontSize: 15, color: Colors.white),
+                ),
+              ),
+            ),
             const Text(
               'Subtick\nNades',
               style: TextStyle(fontSize: 20),
@@ -84,7 +100,7 @@ class MyHomePage extends StatelessWidget {
               ),
             );
         },
-      ), //TODO добавь камит о том что ты добавил скругление
+      ), 
     );
   }
 }

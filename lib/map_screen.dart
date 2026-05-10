@@ -8,25 +8,12 @@ class MapScreen extends StatelessWidget {
   final String mapName;
   final List<Nade> smoke = const [
     Nade(
-        title: "Smokes",
-        description: "Description for Smokes",
-        imageUrl: "images/smokes.png",
-        videoUrl: "videos/smokes.mp4"),
+        title: "Smokes mid t spawn",
+        description: "smoke from t spawn to mid",
+        imageUrl: "images/smoke_mid_mirage.png",
+        videoUrl: "videos/mirage_smoke_window.mp4"),
   ];
-  final List<Nade> flash = const [
-    Nade(
-        title: "Flashes",
-        description: "Description for Flashes",
-        imageUrl: "images/flashes.png",
-        videoUrl: "videos/flashes.mp4"),
-  ];
-  final List<Nade> molotov = const [
-    Nade(
-        title: "Molotovs",
-        description: "Description for Molotovs",
-        imageUrl: "images/molotovs.png",
-        videoUrl: "videos/molotovs.mp4"),
-  ];
+  
   
   @override
   Widget build(BuildContext context) {
@@ -52,9 +39,7 @@ class MapScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final nade = smoke[index];
                 return NadeCard(
-                  title: nade.title,
-                  description: nade.description,
-                  imageUrl: nade.imageUrl,
+                  nade: nade,
                 );
               },
             ),
