@@ -2,6 +2,8 @@
 import 'package:cs2/map_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+//TODO добавить колличество игроков в кс2
+//TODO добавить красивый шрифт для всего текста 
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -26,27 +28,42 @@ class MyHomePage extends StatelessWidget {
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: const Text(
+                'Subtick\nNades',
+                style: TextStyle(fontSize: 15, color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Image.asset("images/logo.png", height: 70),
+          ],
+        ),
+        actions: [SizedBox(
               height: 50,
               child: TextButton (
                 onPressed: () {
                   launchUrl(  
                     Uri.parse('https://taplink.cc/depstarz'));
                 },
-                child: const Text(
-                  'Links',
-                  style: TextStyle(fontSize: 15, color: Colors.white),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                  child: Container(
+                    child: const Text(
+                      'Sponsor Links',
+                      style: TextStyle( fontSize: 10, color: Color.fromARGB(255, 0, 0, 0),backgroundColor: Color.fromARGB(255, 255, 255, 255),shadows: [
+                        Shadow(
+                          color: Color.fromARGB(146, 0, 0, 0),
+                          blurRadius: 5,
+                          offset: Offset(0.3, 0.3),
+                        ),
+                      ],),
+                    ),
+                  ),
                 ),
               ),
-            ),
-            const Text(
-              'Subtick\nNades',
-              style: TextStyle(fontSize: 20),
-              textAlign: TextAlign.center,
-            ),
-            Image.asset("images/logo.png", height: 70),
-          ],
-        ),
+              
+            ),],
         titleTextStyle: Theme.of(context).primaryTextTheme.titleLarge,
         centerTitle: true,
       ),

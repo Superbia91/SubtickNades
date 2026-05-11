@@ -1,7 +1,7 @@
 import 'package:cs2/nade.dart';
 import 'package:cs2/nade_card.dart';
 import 'package:flutter/material.dart';
-
+//TODO добавить смоку на лругих картах и оформить красиво(dust2, inferno, nuke, vertigo, ancient, anubis)
 class MapScreen extends StatelessWidget {
   const MapScreen({super.key, required this.mapName});
 
@@ -23,13 +23,19 @@ class MapScreen extends StatelessWidget {
         appBar: AppBar(
           titleTextStyle: Theme.of(context).primaryTextTheme.titleLarge,
           backgroundColor: Theme.of(context).colorScheme.surface,
-          title: Text(mapName),
-          bottom: const TabBar(
-            tabs: [
-              Tab(text: "Smokes"),
-              Tab(text: "Flashes"),
-              Tab(text: "Molotovs"),
-            ],
+          title: Text(mapName,style: TextStyle(fontSize: 20),),
+          
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(50),
+            child: TabBar(
+              labelStyle: TextStyle(fontSize: 10,color: Theme.of(context).primaryTextTheme.titleLarge?.color),
+              indicatorColor: Colors.white,
+              tabs: [
+                Tab(icon: Image.asset("images/icons/smoke_Icon.png",height: 40),text: 'Smokes',),
+                Tab(icon: Image.asset("images/icons/flash_Icon.png",height: 40),text: "Flashes",),
+                Tab(icon: Image.asset("images/icons/molotov_Icon.png",height: 40),text: "Molotovs",),
+              ],
+            ),
           ),
         ),
         body: TabBarView(
@@ -38,21 +44,24 @@ class MapScreen extends StatelessWidget {
               itemCount: smoke.length,
               itemBuilder: (context, index) {
                 final nade = smoke[index];
-                return NadeCard(
-                  nade: nade,
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  child: NadeCard(
+                    nade: nade,
+                  ),
                 );
               },
             ),
             ListView(children: [
               Text(
                 "Flashes for $mapName",
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(color: Theme.of(context).primaryTextTheme.titleLarge?.color),
               )
             ]),
             ListView(children: [
               Text(
                 "Molotovs for $mapName",
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(color: Theme.of(context).primaryTextTheme.titleLarge?.color),
               )
             ]),
           ],
