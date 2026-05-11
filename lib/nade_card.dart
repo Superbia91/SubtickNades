@@ -11,17 +11,7 @@ final Nade nade;
 
   @override
   Widget build(BuildContext context) {
-    //TODO оформить красиво контейнер с картинкой, названием и описанием. И при нажатии открывать видео на весь экран
-    return InkWell( // TODO сделать так что нажатие регается только на картинку, а не на весь контейнер
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => NadeDetailScreen(nade:nade),
-            ),
-          );
-        },
-        child: Card(
+    return Card(
           color: Color.fromARGB(255, 39, 39, 39),
           child: Padding(
             padding: const EdgeInsets.all(30.0),
@@ -29,22 +19,39 @@ final Nade nade;
               width: 200,
               child: Column(
                 children: [
-                  Align(
-                        child: Image.asset(
-                          nade.imageUrl,
-                          height: 200,
-                          width: 200,
-                          fit: BoxFit.cover,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NadeDetailScreen(nade: nade),
                         ),
+                      );
+                    },
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
+                          child: Image.asset(
+                            nade.imageUrl,
+                            height: 200,
+                            width: 200,
+                            fit: BoxFit.cover,
+                          ),
+                    ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      nade.title,
-                      style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          nade.title,
+                          style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                        SizedBox(height: 8),
+                      ],
                     ),
                   ),
                   Text(
@@ -58,9 +65,9 @@ final Nade nade;
               ),
             ),
           ),
-        ),
+        );
         
-      );
+      
 
     
   }

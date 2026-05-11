@@ -1,22 +1,21 @@
 import 'package:cs2/nade.dart';
 import 'package:cs2/nade_card.dart';
+import 'package:cs2/nade_repository.dart';
 import 'package:flutter/material.dart';
 //TODO добавить смоку на лругих картах и оформить красиво(dust2, inferno, nuke, vertigo, ancient, anubis)
 class MapScreen extends StatelessWidget {
-  const MapScreen({super.key, required this.mapName});
+   const MapScreen({super.key, required this.mapName});
 
   final String mapName;
-  final List<Nade> smoke = const [
-    Nade(
-        title: "Smokes mid t spawn",
-        description: "smoke from t spawn to mid",
-        imageUrl: "images/smoke_mid_mirage.png",
-        videoUrl: "videos/mirage_smoke_window.mp4"),
-  ];
+  
   
   
   @override
   Widget build(BuildContext context) {
+    final List<Nade> smoke = NadeRepository.getSmokesForMap(mapName);
+
+
+
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -44,12 +43,9 @@ class MapScreen extends StatelessWidget {
               itemCount: smoke.length,
               itemBuilder: (context, index) {
                 final nade = smoke[index];
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  child: NadeCard(
+                return NadeCard(
                     nade: nade,
-                  ),
-                );
+                  );                
               },
             ),
             ListView(children: [
