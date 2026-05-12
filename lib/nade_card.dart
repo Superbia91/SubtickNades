@@ -56,11 +56,11 @@ final Nade nade;
                   ),
                   Text(
                     nade.description,
-                    style: const TextStyle(fontSize: 14, color: Colors.white70),
+                    style: const TextStyle(fontSize: 14, color: Color.fromARGB(80, 255, 255, 255)),
                   ),
                   
             
-                  //TODO добавить остальные разкидки на мираже
+                 
                 ],
               ),
             ),

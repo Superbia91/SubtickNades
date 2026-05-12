@@ -1,7 +1,8 @@
 // ignore: file_names
 import 'package:cs2/map_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+
+
 //TODO добавить колличество игроков в кс2
 //TODO добавить красивый шрифт для всего текста 
 
@@ -36,34 +37,10 @@ class MyHomePage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            Image.asset("images/logo.png", height: 70),
+            Image.network("https://storage.yandexcloud.net/cs2-nades-storage/logo.png", height: 70),
           ],
         ),
-        actions: [SizedBox(
-              height: 50,
-              child: TextButton (
-                onPressed: () {
-                  launchUrl(  
-                    Uri.parse('https://taplink.cc/depstarz'));
-                },
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
-                  child: Container(
-                    child: const Text(
-                      'Sponsor Links',
-                      style: TextStyle( fontSize: 10, color: Color.fromARGB(255, 0, 0, 0),backgroundColor: Color.fromARGB(255, 255, 255, 255),shadows: [
-                        Shadow(
-                          color: Color.fromARGB(146, 0, 0, 0),
-                          blurRadius: 5,
-                          offset: Offset(0.3, 0.3),
-                        ),
-                      ],),
-                    ),
-                  ),
-                ),
-              ),
-              
-            ),],
+        
         titleTextStyle: Theme.of(context).primaryTextTheme.titleLarge,
         centerTitle: true,
       ),
@@ -89,8 +66,11 @@ class MyHomePage extends StatelessWidget {
                   child: Stack(
                     children: [
                       SizedBox.expand(
-                        child: Image.asset(
-                          "images/${cs2Maps[index].toLowerCase().replaceAll(' ', '_')}.png",
+
+
+                        
+                        child: Image.network(
+                          "https://storage.yandexcloud.net/cs2-nades-storage/${cs2Maps[index].toLowerCase().replaceAll(' ', '_')}.png",
                           fit: BoxFit.cover,
                         ),
                       ),

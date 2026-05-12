@@ -30,9 +30,9 @@ class MapScreen extends StatelessWidget {
               labelStyle: TextStyle(fontSize: 10,color: Theme.of(context).primaryTextTheme.titleLarge?.color),
               indicatorColor: Colors.white,
               tabs: [
-                Tab(icon: Image.asset("images/icons/smoke_Icon.png",height: 40),text: 'Smokes',),
-                Tab(icon: Image.asset("images/icons/flash_Icon.png",height: 40),text: "Flashes",),
-                Tab(icon: Image.asset("images/icons/molotov_Icon.png",height: 40),text: "Molotovs",),
+                Tab(icon: Image.network("https://storage.yandexcloud.net/cs2-nades-storage/smoke_Icon.png",height: 40),text: 'Smokes',),
+                Tab(icon: Image.network("https://storage.yandexcloud.net/cs2-nades-storage/flash_Icon.png",height: 40),text: "Flashes",),
+                Tab(icon: Image.network("https://storage.yandexcloud.net/cs2-nades-storage/molotov_Icon.png",height: 40),text: "Molotovs",),
               ],
             ),
           ),
